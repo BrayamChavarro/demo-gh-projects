@@ -1,0 +1,81 @@
+name: "Bug report"
+description: "Something is not working as expected."
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a defect.
+        Please fill in every required field so we can reproduce it.
+
+  - type: checkboxes
+    id: preflight
+    attributes:
+      label: "Before submitting"
+      description: "Confirmation required to continue."
+      options:
+        - label: "I searched the existing issues and found no duplicate."
+          required: true
+        - label: "I am running the latest version."
+          required: false
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Describe the problem"
+      description: "A clear and concise description of what is happening."
+      placeholder: "When I submit the sign-in form with a valid email, the page stays on loading."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Where did you see the problem?"
+      multiple: false
+      options:
+        - "Production"
+        - "Staging"
+        - "Local development"
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: "Version"
+      description: "Release tag or commit hash."
+      placeholder: "v1.4.2"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to reproduce"
+      description: "Numbered steps, one per line."
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected behavior"
+      placeholder: "The session starts and the dashboard is displayed."
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs or console output"
+      description: "Optional. Paste any relevant output."
+      render: shell
+    validations:
+      required: false

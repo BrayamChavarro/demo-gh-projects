@@ -1,0 +1,62 @@
+name: "Feature request"
+description: "Suggest an improvement or a new capability."
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the problem before describing the solution.
+        A well framed problem is easier to prioritize than a proposed implementation.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "What problem does this solve?"
+      description: "Describe the situation, not the solution."
+      placeholder: "New users abandon the sign-in page because there is no password recovery link."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "Proposed solution"
+      placeholder: "Add a password recovery flow reachable from the sign-in page."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: areas
+    attributes:
+      label: "Affected areas"
+      description: "Select every area that applies."
+      multiple: true
+      options:
+        - "Authentication"
+        - "Frontend"
+        - "API"
+        - "Infrastructure"
+        - "Documentation"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority"
+      multiple: false
+      options:
+        - "Low"
+        - "Medium"
+        - "High"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: "Scope confirmation"
+      options:
+        - label: "I understand this request may be declined or postponed."
+          required: true
